@@ -7,20 +7,20 @@ DBMSでテーブルを分けて管理することは、一見分かりにくい�
 これらの場合にメリットがある。
 
 人間が見やすいようにする<strong>結合(Join)</strong>という仕組みも用意されている。  
-    joinの構文
-    select 選択列リスト <br>
-    from テーブルA　<br>
-    join テーブルB　<br>
-    on 結合条件 <br>
+    joinの構文<br>
+        select 選択列リスト <br>
+        from テーブルA　<br>
+        join テーブルB　<br>
+        on 結合条件 <br>
     
 結合相手が複数の場合 => 結合前より行数が増えることがある。 <br>
 逆に結合相手の行がない場合、または結合相手がNULLの場合 => 結合結果から消滅する。  
  
 ***左外部結合***  <br>
-    select ~ <br>
-    from 左表の名前 <br>
-    left join 右表の名前 <br>
-    on 結合条件 <br>
+        select ~ <br>
+        from 左表の名前 <br>
+        left join 右表の名前 <br>
+        on 結合条件 <br>
 これにより左の表の結果がすべて表示され、足りない分は右表にNULLが埋められる。  
 右表を完全に表示したいときは、<strong>right join</strong>。 <br>
 左右どちらの表も完全に表示したいときは、<strong>full join</strong>。 <br>
@@ -35,11 +35,11 @@ join on を繰り返す。この場合も、前から一つずつ結合される
 
 ##### 福問い合わせの結果との結合  
 join句の後ろには、表形式のデータに化ける副問い合わせも記述することができる。<br>
-    select 日付、　費目.名前、　費目.経理区分ID <br>
-    from 家計簿 <br>
-    join (select * from 費目 <br>
-          where 経理区分ID = 1 ) as 費目　<br>
-    on 結合条件
+        select 日付、　費目.名前、　費目.経理区分ID <br>
+        from 家計簿 <br>
+        join (select * from 費目 <br>
+              where 経理区分ID = 1 ) as 費目　<br>
+        on 結合条件
     
 #### 同じテーブル同士の結合
 同じテーブル同士でも結合可能だが、選択列リストや条件式を記述するために、<strong>同じテーブルに別の名前を付ける</strong>ことになる。
