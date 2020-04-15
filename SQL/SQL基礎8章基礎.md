@@ -17,7 +17,7 @@ joinの構文
 逆に結合相手の行がない場合、または結合相手がNULLの場合 => 結合結果から消滅する。  
  
 ***左外部結合***  <br>
-        <pre>select ~ 
+        <pre>select ~  
         from 左表の名前  
         left join 右表の名前  
         on 結合条件 </pre>
