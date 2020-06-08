@@ -1,4 +1,4 @@
-# Active strage
+# Active storage
 
 画像をアップするgemは、**carrierwave**や、**Active storage**がある。Rails5.2から、active storageが標準でついているので、Active storage
 が使われることが多くなっていくとの事。
