@@ -53,4 +53,18 @@ SELECT COUNT(*) AS count_all, `users`.`age` AS users_age FROM `users` GROUP BY `
 
 [【Rails】groupメソッドの使い方を図解形式で仕組みを徹底解説！ \| Pikawaka \- ピカ1わかりやすいプログラミング用語サイト](https://pikawaka.com/rails/group)
 
-明日はjoinsメソッドについて調べる。
+### joinメソッド
+
+joinメソッドは内部結合でテーブル結合がされている。**内部結合は両方のテーブルで条件に一致するレコードだけを取得すること。**
+
+```rb
+モデル名.joins(関連名)
+```
+関連名にはhas_manyやbelongs_toアソシエーションで記述するメソッド名を書く。joinsではモデルのレコードだけを取得する。
+
+```rb
+Owner.joins(:cats).where(cats: { name: "モモ" }, name: "田中")
+```
+このような書き方で、SQLのwhere分の条件を指定することができる。
+
+[【Rails】joinsメソッドのテーブル結合からネストまでの解説書 \| Pikawaka \- ピカ1わかりやすいプログラミング用語サイト](https://pikawaka.com/rails/joins#%E5%86%85%E9%83%A8%E7%B5%90%E5%90%88%E3%82%92%E7%90%86%E8%A7%A3%E3%81%97%E3%82%88%E3%81%86)
